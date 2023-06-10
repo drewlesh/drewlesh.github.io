@@ -3,15 +3,17 @@
 ![Homepage Image](C:\Users\drewl\cit281\p7\CIT-Github-Homepage.jpg "Homepage Image")
 ### [Project 1:](https://uo-cit-drewlesh.github.io/CIT281-Project-1/)
 
-### [Project 2:](https://github.com/UO-CIT-drewlesh/CIT281-Project-2.git)
+### [Project 2:](https://uo-cit-drewlesh.github.io/CIT281-Project-2/)
 
-### [Project 3:](https://github.com/UO-CIT-drewlesh/CIT281-Project-3.git)
+### [Project 3:](https://uo-cit-drewlesh.github.io/CIT281-Project-3/)
 
-### [Project 4:](https://github.com/UO-CIT-drewlesh/CIT281-Project-4.git)
+### [Project 4:](https://uo-cit-drewlesh.github.io/CIT281-Project-4/)
 
-### [Project 5:](https://github.com/UO-CIT-drewlesh/CIT281-Project-5.git)
+### [Project 5:](https://uo-cit-drewlesh.github.io/CIT281-Project-5/)
 
-### [Project 6:](https://github.com/UO-CIT-drewlesh/CIT281-Project-6.git)
+### [Project 6:](https://uo-cit-drewlesh.github.io/CIT281-Project-6/)
+
+### [Project 7:](https://uo-cit-drewlesh.github.io/CIT281-Project-7/)
 
 
 
