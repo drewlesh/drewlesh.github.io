@@ -17,21 +17,21 @@
 
 
 
-### [Lab 1:](https://github.com/UO-CIT-drewlesh/CIT281-lab-1.git)
+### [Lab 1:](https://uo-cit-drewlesh.github.io/CIT281-lab-1/)
 
-### [Lab 2:](https://github.com/UO-CIT-drewlesh/CIT281-lab-2.git)
+### [Lab 2:](https://uo-cit-drewlesh.github.io/CIT281-lab-2/)
 
-### [Lab 3:](https://github.com/UO-CIT-drewlesh/CIT281-lab-3.git)
+### [Lab 3:](https://uo-cit-drewlesh.github.io/CIT281-lab-3/)
 
-### [Lab 4:](https://github.com/UO-CIT-drewlesh/CIT281-lab-4.git)
+### [Lab 4:](https://uo-cit-drewlesh.github.io/CIT281-lab-4/)
 
-### [Lab 5:](https://github.com/UO-CIT-drewlesh/CIT281-lab-5.git)
+### [Lab 5:](https://uo-cit-drewlesh.github.io/CIT281-lab-5/)
 
-### [Lab 6:](https://github.com/UO-CIT-drewlesh/CIT281-lab-6.git)
+### [Lab 6:](https://uo-cit-drewlesh.github.io/CIT281-lab-6/)
 
-### [Lab 7:](https://github.com/UO-CIT-drewlesh/CIT281-lab-7.git)
+### [Lab 7:](https://uo-cit-drewlesh.github.io/CIT281-lab-7/)
 
-### [Lab 8:](https://github.com/UO-CIT-drewlesh/CIT281-lab-8.git)
+### [Lab 8:](https://uo-cit-drewlesh.github.io/CIT281-lab-8/)
 
-### [Lab 9:](https://github.com/UO-CIT-drewlesh/CIT281-lab-9.git)
+### [Lab 9:](https://uo-cit-drewlesh.github.io/CIT281-lab-9/)
 
