@@ -1,6 +1,6 @@
 #### drewlesh.github.io
 # Univerity of Oregon - CIT Minor Portfolio
-![Homepage Image](https://github.com/drewlesh/drewlesh.github.io/blob/images/CIT-Github-Homepage.jpg "Homepage Image")
+![Homepage Image](https://github.com/drewlesh/drewlesh.github.io/blob/images/CIT-Github-Homepage.jpg)
 ### [Project 1:](https://uo-cit-drewlesh.github.io/CIT281-Project-1/)
 
 ### [Project 2:](https://uo-cit-drewlesh.github.io/CIT281-Project-2/)
