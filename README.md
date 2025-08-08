@@ -3,17 +3,17 @@
 ![Homepage Image](https://github.com/drewlesh/drewlesh.github.io/blob/images/CIT-Github-Homepage.jpg)
 ### [Project 1:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
-### [Project 2:](https://uo-cit-drewlesh.github.io/CIT281-Project-2/)
+### [Project 2:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
-### [Project 3:](https://uo-cit-drewlesh.github.io/CIT281-Project-3/)
+### [Project 3:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
-### [Project 4:](https://uo-cit-drewlesh.github.io/CIT281-Project-4/)
+### [Project 4:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
-### [Project 5:](https://uo-cit-drewlesh.github.io/CIT281-Project-5/)
+### [Project 5:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
-### [Project 6:](https://uo-cit-drewlesh.github.io/CIT281-Project-6/)
+### [Project 6:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
-### [Project 7:](https://uo-cit-drewlesh.github.io/CIT281-Project-7/)
+### [Project 7:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/)
 
 
 
