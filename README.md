@@ -16,7 +16,7 @@
 
 ### [Lab 1:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab1/)
 
-### [Lab 2:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplcationDevelopment-I/Lab2/)
+### [Lab 2:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab2/)
 
 ### [Lab 3:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab3/)
 
