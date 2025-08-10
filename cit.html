@@ -55,13 +55,15 @@ const orgName = "UO-CIT-drewlesh";
 const classesDiv = document.getElementById("classes");
 
 function formatName(name) {
-  // replace dashes/underscores with spaces
   let result = name.replace(/[-_]/g, ' ');
-  // insert spaces before uppercase letters inside words
+  // Insert spaces before uppercase letters inside words
   result = result.replace(/([a-z])([A-Z])/g, '$1 $2');
-  //Capitalize first letter of each word
+  // Insert spaces between letters and numbers (both directions)
+  result = result.replace(/([a-zA-Z])(\d)/g, '$1 $2');
+  result = result.replace(/(\d)([a-zA-Z])/g, '$1 $2');
+  // Capitalize first letter of each word
   result = result.replace(/\b\w/g, char => char.toUpperCase());
-  
+
   return result;
 }
 
