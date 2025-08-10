@@ -1,7 +1,7 @@
 # Drewlesh's Portfolio
 
 Welcome! This is the source code for my personal portfolio, hosted with **GitHub Pages** at  
-🌐 **[drewlesh.github.io](https://drewlesh.github.io/index.html)**
+🌐 **[drewlesh.github.io](https://drewlesh.github.io)**
 
 ---
 
