@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIT Minor Pathway - Drew Lesh</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f4f4f4; }
+        header { background: #222; color: #fff; padding: 1rem; text-align: center; }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+        main { max-width: 1000px; margin: auto; padding: 2rem; }
+        .project-card {
+            background: #fff; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        .project-card h3 { margin: 0 0 .5rem 0; }
+        .buttons a {
+            display: inline-block; margin-right: 10px; margin-top: 5px; padding: 0.4rem 0.8rem;
+            background: #0077cc; color: #fff; text-decoration: none; border-radius: 4px;
+        }
+        .buttons a:hover { background: #005fa3; }
+    </style>
+</head>
+<body>
+<header>
+    <h1>CIT Minor Pathway</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="cit.html">CIT Minor Pathway</a>
+        <a href="https://github.com/drewlesh">GitHub</a>
+    </nav>
+</header>
+
+<main>
+    <h2>My CIT Coursework</h2>
+    <p>Automatically generated list of my CIT labs and projects from GitHub.</p>
+    <div id="projects">Loading projects...</div>
+</main>
+
+<script>
+const orgName = "UO-CIT-drewlesh";
+const projectsContainer = document.getElementById("projects");
+
+async function fetchRepos() {
+    try {
+        const repoRes = await fetch(`https://api.github.com/orgs/${orgName}/repos?per_page=100`);
+        const repos = await repoRes.json();
+
+        projectsContainer.innerHTML = "";
+
+        for (let repo of repos) {
+            const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
+            const contents = await contentsRes.json();
+
+            contents.forEach(item => {
+                if (item.type === "dir") {
+                    const livePreview = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
+                    const viewCode = item.html_url;
+
+                    const card = document.createElement("div");
+                    card.classList.add("project-card");
+                    card.innerHTML = `
+                        <h3>${repo.name} - ${item.name}</h3>
+                        <div class="buttons">
+                            <a href="${livePreview}" target="_blank">Live Preview</a>
+                            <a href="${viewCode}" target="_blank">View Code</a>
+                        </div>
+                    `;
+                    projectsContainer.appendChild(card);
+                }
+            });
+        }
+    } catch (err) {
+        projectsContainer.innerHTML = "Error loading projects.";
+        console.error(err);
+    }
+}
+
+fetchRepos();
+</script>
+</body>
+</html>
