@@ -6,7 +6,10 @@ Welcome! This is the source code for my personal portfolio, hosted with **GitHub
 ---
 
 ## 📌 About This Portfolio
-This site showcases my coursework, projects, and skills as I complete my **CIT minor at the University of Oregon**.  
+This site showcases my coursework, projects, and skills.
+**University of Oregon Alumni 24'**
+**Bachelor of Science in Economics**
+**Minor in Computer Information Technology**
 It includes:
 
 - My **CIT minor pathway** with a list of completed courses.
