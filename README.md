@@ -34,6 +34,6 @@ Here are a few highlights (see full details on my [portfolio site](https://drewl
 ---
 
 ## 📫 Contact
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- Email: drewlesh24@gmail.com
+- LinkedIn: [drew-lesh](https://www.linkedin.com/in/drew-lesh/)
 - GitHub: [@drewlesh](https://github.com/drewlesh)
