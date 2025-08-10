@@ -5,14 +5,16 @@ Welcome! This is the source code for my personal portfolio, hosted with **GitHub
 
 ---
 
+### 🎓 University of Oregon Alumni, Class of 2024
+
+**Bachelor of Science** in Economics  
+*Minor in Computer Information Technology*
+
+---
+
 ## 📌 About This Portfolio
-This site showcases my coursework, projects, and skills.
 
-**University of Oregon Alumni 24'**
-
-**Bachelor of Science in Economics**
-
-**Minor in Computer Information Technology**
+Welcome to my portfolio showcasing coursework, projects, and personal work related to my studies and skills.
 
 It includes:
 
