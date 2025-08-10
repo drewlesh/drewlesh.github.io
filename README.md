@@ -1,26 +1,33 @@
-#### drewlesh.github.io
-# Univerity of Oregon - CIT Minor Portfolio
-![Homepage Image](https://github.com/drewlesh/drewlesh.github.io/blob/images/CIT-Github-Homepage.jpg)
-### [Project 1:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project1/)
+# Drewlesh's Portfolio
 
-### [Project 2:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project2/)
+Welcome! This is the source code for my personal portfolio, hosted with **GitHub Pages** at  
+🌐 **[drewlesh.github.io](https://drewlesh.github.io)**
 
-### [Project 3:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project3/)
+---
 
-### [Project 4:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project4/)
+## 📌 About This Portfolio
+This site showcases my coursework, projects, and skills as I complete my **CIT minor at the University of Oregon**.  
+It includes:
 
-### [Project 5:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project5/)
+- My **CIT minor pathway** with a list of completed courses.
+- Class projects from [UO-CIT-drewlesh](https://github.com/UO-CIT-drewlesh) organization.
+- Other personal and professional projects.
 
-### [Project 6:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project6/)
+---
 
+## 🗂 Featured Projects
+Here are a few highlights (see full details on my [portfolio site](https://drewlesh.github.io)):
 
-### [Lab 1:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab1/)
+---
 
-### [Lab 2:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab2/)
+## 🛠 Technologies
+- HTML, CSS, JavaScript
+- Python, SQL
+- Git & GitHub
 
-### [Lab 3:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab3/)
+---
 
-### [Lab 4:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab4/)
-
-### [Lab 5:](https://uo-cit-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab5/)
-
+## 📫 Contact
+- Email: drewlesh24@gmail.com
+- LinkedIn: [drew-lesh](https://www.linkedin.com/in/drew-lesh/)
+- GitHub: [@drewlesh](https://github.com/drewlesh)
