@@ -18,12 +18,6 @@ It includes:
 ## 🗂 Featured Projects
 Here are a few highlights (see full details on my [portfolio site](https://drewlesh.github.io)):
 
-- **Project 3: Interactive Dashboard**  - UPDATE
-  [View Live Demo](https://UO-CIT-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Project3/) | [Source Code](https://github.com/UO-CIT-drewlesh/CIT-281-WebApplicationDevelopment-I/tree/main/Project3)
-
-- **Lab 5: JavaScript DOM Manipulation**  - UPDATE
-  [View Live Demo](https://UO-CIT-drewlesh.github.io/CIT-281-WebApplicationDevelopment-I/Lab5/) | [Source Code](https://github.com/UO-CIT-drewlesh/CIT-281-WebApplicationDevelopment-I/tree/main/Lab5)
-
 ---
 
 ## 🛠 Technologies
