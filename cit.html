@@ -95,7 +95,7 @@ async function fetchRepos() {
 
               // For each folder (project) create a link
               contents.forEach(item => {
-                if (item.type === "dir") {
+                if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
                   const liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
                   const codeUrl = item.html_url;
 
