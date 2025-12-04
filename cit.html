@@ -86,16 +86,13 @@ async function fetchRepos() {
               const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
               const contents = await contentsRes.json();
 
-              // Process projects in order
-              for (const item of contents) {
+              contents.forEach(async item => {
                 if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
                   let liveUrl;
 
-                  // Fetch contents of this project folder
                   const projectContentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents/${item.name}`);
                   const projectContents = await projectContentsRes.json();
 
-                  // Check for StaticDemo folder
                   const staticDemoFolder = projectContents.find(c => c.type === "dir" && c.name === "StaticDemo");
 
                   if (staticDemoFolder) {
@@ -112,7 +109,7 @@ async function fetchRepos() {
 
                   projectsContainer.appendChild(projectLink);
                 }
-              }
+              });
             } catch (err) {
               projectsContainer.textContent = "Error loading projects.";
               console.error(err);
@@ -131,6 +128,12 @@ async function fetchRepos() {
     console.error(error);
   }
 }
+
+fetchRepos();
+</script>
+</body>
+</html>
+
 
 fetchRepos();
 </script>
