@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>UO CIT Pathway- Drew Lesh</title>
+<title>CIT Minor Pathway - Drew Lesh</title>
 <style>
   body { font-family: Arial, sans-serif; max-width: 900px; margin: 2rem auto; background: #f4f4f4; }
   h1 { text-align: center; }
@@ -21,7 +21,9 @@
     text-align: left;
     transition: background 0.3s;
   }
-  .class-button:hover { background: #005fa3; }
+  .class-button:hover {
+    background: #005fa3;
+  }
   .projects-container {
     margin-left: 1rem;
     margin-bottom: 1rem;
@@ -37,11 +39,13 @@
     font-weight: bold;
     transition: background 0.2s;
   }
-  .project-link:hover { background: #ccc; }
+  .project-link:hover {
+    background: #ccc;
+  }
 </style>
 </head>
 <body>
-<h1>Computer Information Technology Projects - Drew Lesh</h1>
+<h1>CIT Minor Pathway</h1>
 <p>Click a class to see its projects.</p>
 
 <div id="classes"></div>
@@ -50,18 +54,6 @@
 const orgName = "UO-CIT-drewlesh";
 const classesDiv = document.getElementById("classes");
 
-function formatName(name) {
-  let result = name.replace(/[-_]/g, ' ');
-  // Insert spaces before uppercase letters inside words
-  result = result.replace(/([a-z])([A-Z])/g, '$1 $2');
-  // Insert spaces between letters and numbers (both directions)
-  result = result.replace(/([a-zA-Z])(\d)/g, '$1 $2');
-  result = result.replace(/(\d)([a-zA-Z])/g, '$1 $2');
-  // Capitalize first letter of each word
-  result = result.replace(/\b\w/g, char => char.toUpperCase());
-  return result;
-}
-
 async function fetchRepos() {
   try {
     const res = await fetch(`https://api.github.com/orgs/${orgName}/repos?per_page=100`);
@@ -69,9 +61,9 @@ async function fetchRepos() {
 
     for (const repo of repos) {
       const classBtn = document.createElement("button");
-      classBtn.textContent = formatName(repo.name);
+      classBtn.textContent = repo.name;
       classBtn.className = "class-button";
-      
+
       // Container for this class's projects
       const projectsContainer = document.createElement("div");
       projectsContainer.className = "projects-container";
@@ -81,31 +73,23 @@ async function fetchRepos() {
       classBtn.addEventListener("click", async () => {
         if (projectsContainer.style.display === "none") {
           projectsContainer.style.display = "block";
+
           // If already loaded, don’t fetch again
           if (projectsContainer.childElementCount === 0) {
             try {
               const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
               const contents = await contentsRes.json();
+
               // For each folder (project) create a link
               contents.forEach(item => {
-                if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
-                  let liveUrl;
-                  // Fetch contents of this project folder
-                  const projectContentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents/${item.name}`);
-                  const projectContents = await projectContentsRes.json();
-
-                  const staticDemoFolder = projectContents.find(c => c.type === "dir" && c.name === "StaticDemo");
-
-                  if (staticDemoFolder) {
-                    liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/StaticDemo/`;
-                  } else {
-                    liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
-                  }
+                if (item.type === "dir") {
+                  const liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
+                  const codeUrl = item.html_url;
 
                   const projectLink = document.createElement("a");
                   projectLink.href = liveUrl;
                   projectLink.target = "_blank";
-                  projectLink.textContent = formatName(item.name);
+                  projectLink.textContent = item.name;
                   projectLink.className = "project-link";
 
                   projectsContainer.appendChild(projectLink);
