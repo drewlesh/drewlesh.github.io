@@ -20,7 +20,7 @@ It includes:
 
 - My **CIT minor pathway** with a list of completed courses.
 - Class projects from [UO-CIT-drewlesh](https://github.com/UO-CIT-drewlesh) organization.
-- Other personal and professional projects.
+- Other personal and academic projects.
 
 ---
 
