@@ -87,7 +87,7 @@ async function fetchRepos() {
               const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
               const contents = await contentsRes.json();
               // For each folder (project) create a link
-              contents.forEach(async item => {
+              contents.forEach(item => {
                 if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
                   let liveUrl;
                   // Fetch contents of this project folder
