@@ -94,22 +94,29 @@ async function fetchRepos() {
               const contents = await contentsRes.json();
 
               // For each folder (project) create a link
-              contents.forEach(item => {
+              contents.forEach(async item => {
                 if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
-                let liveUrl;
-                const demoFolder = contents.find(c => c.type === "dir" && c.name === "StaticDemo");
-                if (demoFolder) {
-                  liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/StaticDemo/`;
-                } else {
-                  liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
-                }                  
-                  const codeUrl = item.html_url;
+                  let liveUrl;
+              
+                  // Fetch contents of this project folder
+                  const projectContentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents/${item.name}`);
+                  const projectContents = await projectContentsRes.json();
+              
+                  // Look for StaticDemo inside the project folder
+                  const staticDemoFolder = projectContents.find(c => c.type === "dir" && c.name === "StaticDemo");
+              
+                  if (staticDemoFolder) {
+                    liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/StaticDemo/`;
+                  } else {
+                    liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
+                  }
+              
                   const projectLink = document.createElement("a");
                   projectLink.href = liveUrl;
                   projectLink.target = "_blank";
                   projectLink.textContent = formatName(item.name);
                   projectLink.className = "project-link";
-
+              
                   projectsContainer.appendChild(projectLink);
                 }
               });
