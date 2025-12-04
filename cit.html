@@ -98,7 +98,7 @@ async function fetchRepos() {
                   const projectLink = document.createElement("a");
                   projectLink.href = liveUrl;
                   projectLink.target = "_blank";
-                  projectLink.textContent = item.name;
+                  projectLink.textContent = formatName(item.name);
                   projectLink.className = "project-link";
 
                   projectsContainer.appendChild(projectLink);
