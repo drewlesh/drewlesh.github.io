@@ -56,14 +56,10 @@ const classesDiv = document.getElementById("classes");
 
 function formatName(name) {
   let result = name.replace(/[-_]/g, ' ');
-  // Insert spaces before uppercase letters inside words
   result = result.replace(/([a-z])([A-Z])/g, '$1 $2');
-  // Insert spaces between letters and numbers (both directions)
   result = result.replace(/([a-zA-Z])(\d)/g, '$1 $2');
   result = result.replace(/(\d)([a-zA-Z])/g, '$1 $2');
-  // Capitalize first letter of each word
   result = result.replace(/\b\w/g, char => char.toUpperCase());
-
   return result;
 }
 
@@ -77,49 +73,46 @@ async function fetchRepos() {
       classBtn.textContent = formatName(repo.name);
       classBtn.className = "class-button";
 
-      // Container for this class's projects
       const projectsContainer = document.createElement("div");
       projectsContainer.className = "projects-container";
       projectsContainer.style.display = "none";
 
-      // When class button clicked, toggle projects list
       classBtn.addEventListener("click", async () => {
         if (projectsContainer.style.display === "none") {
           projectsContainer.style.display = "block";
 
-          // If already loaded, don’t fetch again
           if (projectsContainer.childElementCount === 0) {
             try {
               const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
               const contents = await contentsRes.json();
 
-              // For each folder (project) create a link
-              contents.forEach(async item => {
+              // Process projects in order
+              for (const item of contents) {
                 if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
                   let liveUrl;
-              
+
                   // Fetch contents of this project folder
                   const projectContentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents/${item.name}`);
                   const projectContents = await projectContentsRes.json();
-              
-                  // Look for StaticDemo inside the project folder
+
+                  // Check for StaticDemo folder
                   const staticDemoFolder = projectContents.find(c => c.type === "dir" && c.name === "StaticDemo");
-              
+
                   if (staticDemoFolder) {
                     liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/StaticDemo/`;
                   } else {
                     liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
                   }
-              
+
                   const projectLink = document.createElement("a");
                   projectLink.href = liveUrl;
                   projectLink.target = "_blank";
                   projectLink.textContent = formatName(item.name);
                   projectLink.className = "project-link";
-              
+
                   projectsContainer.appendChild(projectLink);
                 }
-              });
+              }
             } catch (err) {
               projectsContainer.textContent = "Error loading projects.";
               console.error(err);
