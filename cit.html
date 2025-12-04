@@ -52,9 +52,12 @@ const classesDiv = document.getElementById("classes");
 
 function formatName(name) {
   let result = name.replace(/[-_]/g, ' ');
+  // Insert spaces before uppercase letters inside words
   result = result.replace(/([a-z])([A-Z])/g, '$1 $2');
+  // Insert spaces between letters and numbers (both directions)
   result = result.replace(/([a-zA-Z])(\d)/g, '$1 $2');
   result = result.replace(/(\d)([a-zA-Z])/g, '$1 $2');
+  // Capitalize first letter of each word
   result = result.replace(/\b\w/g, char => char.toUpperCase());
   return result;
 }
@@ -68,24 +71,26 @@ async function fetchRepos() {
       const classBtn = document.createElement("button");
       classBtn.textContent = formatName(repo.name);
       classBtn.className = "class-button";
-
+      
+      // Container for this class's projects
       const projectsContainer = document.createElement("div");
       projectsContainer.className = "projects-container";
       projectsContainer.style.display = "none";
 
+      // When class button clicked, toggle projects list
       classBtn.addEventListener("click", async () => {
         if (projectsContainer.style.display === "none") {
           projectsContainer.style.display = "block";
-
+          // If already loaded, don’t fetch again
           if (projectsContainer.childElementCount === 0) {
             try {
               const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
               const contents = await contentsRes.json();
-
+              // For each folder (project) create a link
               contents.forEach(async item => {
                 if (item.type === "dir" && item.name.toLowerCase() !== "docs") {
                   let liveUrl;
-
+                  // Fetch contents of this project folder
                   const projectContentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents/${item.name}`);
                   const projectContents = await projectContentsRes.json();
 
