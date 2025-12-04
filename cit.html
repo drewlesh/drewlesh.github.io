@@ -1,88 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CIT Minor Pathway - Drew Lesh</title>
-  <style>
-    body { 
-      font-family: 'Roboto', sans-serif; 
-      margin: 2rem auto;
-      max-width: 900px;
-      background: #f4f4f4; 
-      color: #333; 
-    }
-  
-    header { 
-      background: #222; 
-      color: #fff; 
-      padding: 1.5rem; 
-      text-align: center; 
-      border-radius: 10px 10px 0 0;
-    }
-    header h1 { margin: 0; font-size: 2rem; }
-    header p { margin: 0.5rem 0 0; font-size: 1.1rem; }
-  
-    .home-button {
-      display: inline-block;
-      margin: 1rem 0;
-      padding: 8px 12px;
-      background: #2a7f62; /* new color */
-      color: white;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .home-button:hover {
-      background: #1f5d47;
-    }
-  
-    .class-button {
-      display: block;
-      width: 100%;
-      background: #2a7f62; /* new color */
-      color: white;
-      border: none;
-      padding: 12px 16px;
-      font-size: 1.1rem;
-      margin: 0.5rem 0;
-      border-radius: 6px;
-      cursor: pointer;
-      text-align: left;
-      transition: background 0.3s;
-    }
-    .class-button:hover {
-      background: #1f5d47;
-    }
-  
-    .projects-container {
-      margin-left: 1rem;
-      margin-bottom: 1rem;
-    }
-  
-    .project-link {
-      display: inline-block;
-      margin: 0.3rem 0.5rem 0.3rem 0;
-      padding: 6px 10px;
-      background: #e0e0e0;
-      border-radius: 5px;
-      text-decoration: none;
-      color: #222;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-    .project-link:hover {
-      background: #ccc;
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CIT Minor Pathway - Drew Lesh</title>
+<style>
+  body { 
+    font-family: 'Roboto', sans-serif; 
+    margin: 0; 
+    background: #f4f4f4; 
+    color: #333; 
+  }
+
+  header { 
+    background: #222; 
+    color: white; 
+    padding: 1.5rem; 
+    text-align: center; 
+  }
+  header h1 { margin: 0; font-size: 2rem; }
+  header p { margin: 0.5rem 0 0; font-size: 1.1rem; }
+
+  .home-button {
+    display: inline-block;
+    margin: 1rem 0;
+    padding: 8px 12px;
+    background: #2a7f62;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .home-button:hover { background: #1f5d47; }
+
+  .class-button {
+    display: block;
+    width: 100%;
+    background: #2a7f62;
+    color: white;
+    border: none;
+    padding: 12px 16px;
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem 0;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s;
+  }
+  .class-button:hover { background: #1f5d47; }
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .project-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  .project-card a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #2a7f62;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  .project-card a:hover { background: #1f5d47; }
+</style>
 </head>
 <body>
+
 <header>
-  <a href='https://drewlesh.github.io' class='home-button'>Back to Home</a>
-  <h1>Computer Information Technology</h1>
-  <p>Portfolio by Drew Lesh | University of Oregon CIT Minor 2021-2024</p>
+  <h1>CIT Minor Pathway</h1>
+  <p>University of Oregon Minor Course Projects 2021-2024</p>
+  <a href="index.html" class="home-button">Home</a>
 </header>
+
 <div id="classes"></div>
 
 <script>
@@ -94,8 +100,7 @@ function formatName(name) {
   result = result.replace(/([a-z])([A-Z])/g, '$1 $2');
   result = result.replace(/([a-zA-Z])(\d)/g, '$1 $2');
   result = result.replace(/(\d)([a-zA-Z])/g, '$1 $2');
-  result = result.replace(/\b\w/g, char => char.toUpperCase());
-  return result;
+  return result.replace(/\b\w/g, char => char.toUpperCase());
 }
 
 async function fetchRepos() {
@@ -108,55 +113,41 @@ async function fetchRepos() {
       classBtn.textContent = formatName(repo.name);
       classBtn.className = "class-button";
 
-      // Container for this class's projects
       const projectsContainer = document.createElement("div");
       projectsContainer.className = "projects-container";
       projectsContainer.style.display = "none";
 
-      // When class button clicked, toggle projects list
       classBtn.addEventListener("click", async () => {
-        if (projectsContainer.style.display === "none") {
-          projectsContainer.style.display = "block";
-
-          // If already loaded, don’t fetch again
-          if (projectsContainer.childElementCount === 0) {
-            try {
-              const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
-              const contents = await contentsRes.json();
-
-              // For each folder (project) create a link
-              contents.forEach(item => {
-                if (item.type === "dir") {
-                  const liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
-                  const codeUrl = item.html_url;
-
-                  const projectLink = document.createElement("a");
-                  projectLink.href = liveUrl;
-                  projectLink.target = "_blank";
-                  projectLink.textContent = formatName(item.name);
-                  projectLink.className = "project-link";
-
-                  projectsContainer.appendChild(projectLink);
-                }
-              });
-            } catch (err) {
-              projectsContainer.textContent = "Error loading projects.";
-              console.error(err);
+        projectsContainer.style.display = projectsContainer.style.display === "none" ? "grid" : "none";
+        if (projectsContainer.childElementCount === 0) {
+          const contentsRes = await fetch(`https://api.github.com/repos/${orgName}/${repo.name}/contents`);
+          const contents = await contentsRes.json();
+          contents.forEach(item => {
+            if (item.type === "dir") {
+              const liveUrl = `https://${orgName}.github.io/${repo.name}/${item.name}/`;
+              const card = document.createElement("div");
+              card.className = "project-card";
+              card.innerHTML = `<h3>${formatName(item.name)}</h3>
+                                <a href="${liveUrl}" target="_blank">View Project</a>`;
+              projectsContainer.appendChild(card);
             }
-          }
-        } else {
-          projectsContainer.style.display = "none";
+          });
         }
       });
 
       classesDiv.appendChild(classBtn);
       classesDiv.appendChild(projectsContainer);
     }
-  } catch (error) {
+  } catch (err) {
     classesDiv.textContent = "Error loading classes.";
-    console.error(error);
+    console.error(err);
   }
 }
+
+fetchRepos();
+</script>
+</body>
+</html>
 
 fetchRepos();
 </script>
