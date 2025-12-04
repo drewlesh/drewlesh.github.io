@@ -54,6 +54,15 @@
 const orgName = "UO-CIT-drewlesh";
 const classesDiv = document.getElementById("classes");
 
+function formatName(name) {
+  let result = name.replace(/[-_]/g, ' ');
+  result = result.replace(/([a-z])([A-Z])/g, '$1 $2');
+  result = result.replace(/([a-zA-Z])(\d)/g, '$1 $2');
+  result = result.replace(/(\d)([a-zA-Z])/g, '$1 $2');
+  result = result.replace(/\b\w/g, char => char.toUpperCase());
+  return result;
+}
+
 async function fetchRepos() {
   try {
     const res = await fetch(`https://api.github.com/orgs/${orgName}/repos?per_page=100`);
@@ -61,7 +70,7 @@ async function fetchRepos() {
 
     for (const repo of repos) {
       const classBtn = document.createElement("button");
-      classBtn.textContent = repo.name;
+      classBtn.textContent = formatName(repo.name);
       classBtn.className = "class-button";
 
       // Container for this class's projects
