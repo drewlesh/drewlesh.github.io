@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Personal Projects - Drew Lesh</title>
+
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    background: #f4f4f4;
+    color: #333;
+  }
+
+  header {
+    background: #222;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  header p {
+    margin: 0.5rem 0 0;
+    font-size: 1.1rem;
+    opacity: 0.85;
+  }
+
+  .home-button {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 8px 14px;
+    background: #2a7f62;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+
+  .home-button:hover {
+    background: #1f5d47;
+  }
+
+  main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: white;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+  }
+
+  .project-card h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-card p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+    min-height: 3em;
+  }
+
+  .project-links {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-links a {
+    padding: 0.45rem 0.9rem;
+    background: #2a7f62;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+  }
+
+  .project-links a:hover {
+    background: #1f5d47;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Personal Projects</h1>
+  <p>Drew Lesh</p>
+  <a href="index.html" class="home-button">Home</a>
+</header>
+
+<main>
+  <div id="projects" class="projects-container"></div>
+</main>
+
+<script>
+const username = "drewlesh"; // ← change if needed
+const projectsDiv = document.getElementById("projects");
+
+function formatName(name) {
+  return name
+    .replace(/[-_]/g, ' ')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/\b\w/g, char => char.toUpperCase());
+}
+
+async function fetchProjects() {
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`);
+    const repos = await res.json();
+
+    repos
+      .filter(repo => !repo.fork)
+      .forEach(repo => {
+        const card = document.createElement("div");
+        card.className = "project-card";
+
+        const liveUrl = repo.has_pages
+          ? `https://${username}.github.io/${repo.name}/`
+          : null;
+
+        card.innerHTML = `
+          <h3>${formatName(repo.name)}</h3>
+          <p>${repo.description || "Personal project exploring ideas and implementation."}</p>
+          <div class="project-links">
+            <a href="${repo.html_url}" target="_blank">GitHub</a>
+            ${liveUrl ? `<a href="${liveUrl}" target="_blank">Live Demo</a>` : ""}
+          </div>
+        `;
+
+        projectsDiv.appendChild(card);
+      });
+
+  } catch (err) {
+    projectsDiv.textContent = "Error loading projects.";
+    console.error(err);
+  }
+}
+
+fetchProjects();
+</script>
+
+</body>
+</html>
